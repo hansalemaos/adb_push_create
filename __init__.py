@@ -44,12 +44,10 @@ def make_folders(adb_path: str, deviceserial: str, path2create: str):
             shell=False,
         )
         print(f"Creating: {path}", end="\r")
-        if proc.stderr:
-            print(proc.stderr)
-            break
-    else:
-        return True
-    return False
+        # if proc.stderr:
+        #     print(proc.stderr)
+        #     break
+
 
 
 def push_file(adb_path: str, deviceserial: str, file: str, dest: str):
@@ -74,8 +72,7 @@ def push_file(adb_path: str, deviceserial: str, file: str, dest: str):
     adb_path_ = adb_path.strip("\" '")
     file = file.strip("\" '")
     dest = dest.strip("\" '")
-    if not make_folders(adb_path, deviceserial, dest):
-        return False
+    make_folders(adb_path, deviceserial, dest)
     proc = subprocess.run(
         f'"{adb_path_}" -s {deviceserial} push "{file}" "{dest}"',
         capture_output=True,
