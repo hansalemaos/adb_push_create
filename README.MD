@@ -1,3 +1,7 @@
+# Use:
+# https://github.com/hansalemaos/usefuladb
+# https://github.com/hansalemaos/usefuladbplus
+
 # creates [nested] folders and pushes files with ADB
 
 ## Tested against Windows 10 / Python 3.10 / Anaconda 
